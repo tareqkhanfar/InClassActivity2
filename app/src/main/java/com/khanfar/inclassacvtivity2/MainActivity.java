@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -42,18 +44,19 @@ private Switch aSwitch ;
 
     public void addOnAction(View view) {
 
-        list.add(new Book(title.getText().toString() ,author.getText().toString() , Integer.parseInt(pages.getText().toString().trim()) ,aSwitch.isActivated()  ));
+        list.add(new Book(title.getText().toString() ,author.getText().toString() , Integer.parseInt(pages.getText().toString().trim()) ,aSwitch.isChecked()  ));
         Toast.makeText(this, "Added book ...done", Toast.LENGTH_SHORT).show();
 
     }
 
     public void saveAllOnAction(View view) {
+       Gson gson = new Gson() ;
+
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this) ;
         editor = sharedPreferences.edit();
-       String str = "" ;
-       for (Book book : list) {
-           str += book.toString();
-       }
+       String str = gson.toJson(list); ;
+
+        System.out.println(str);
        editor.putString("DATA" , str );
 
        editor.commit() ;
