@@ -20,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
 private Button add , saveAll ;
 private EditText title , author , pages ;
 private Switch aSwitch ;
-   private List<Book> list = new LinkedList<>() ;
-   private SharedPreferences sharedPreferences ; // read Only
+private List<Book> list = new LinkedList<>() ;
+private SharedPreferences sharedPreferences ; // read Only
     private  SharedPreferences.Editor editor ; // Write Only
-
+private  boolean flag = false ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,14 @@ private Switch aSwitch ;
         setUpComponent () ;
 
     }
+    @Override
+    protected void onStop() {
+        if (flag == false) {
+            saveAllOnAction(getCurrentFocus());
+        }
+        super.onStop();
+    }
+
 
     private void setUpComponent() {
         add = findViewById(R.id.add);
@@ -50,13 +58,14 @@ private Switch aSwitch ;
     }
 
     public void saveAllOnAction(View view) {
+        flag = true ;
        Gson gson = new Gson() ;
-
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this) ;
         editor = sharedPreferences.edit();
        String str = gson.toJson(list); ;
 
         System.out.println(str);
+        editor.putBoolean("flag" , flag );
        editor.putString("DATA" , str );
 
        editor.commit() ;
