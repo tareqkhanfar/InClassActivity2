@@ -7,6 +7,7 @@
 android:layout_margin="20dp"
     android:gravity="center"
     android:layout_height="match_parent"
+    android:background="#A6D3A8"
     tools:context=".MainActivity">
 
 <TextView
@@ -44,7 +45,7 @@ android:layout_margin="20dp"
         android:layout_height="60dp"
         android:hint="pages"
         android:textSize="40dp"
-
+       android:inputType="number"
         android:id="@+id/pages"
         android:layout_gravity="center"
         android:gravity="center"
