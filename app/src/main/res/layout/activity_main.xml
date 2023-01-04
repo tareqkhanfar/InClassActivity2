@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+android:layout_margin="20dp"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:textSize="40dp"
+    android:text="Enter New Book"
+    />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Book title"
+        android:textSize="40dp"
+
+        android:id="@+id/title"
+        android:layout_gravity="center"
+        android:gravity="center"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Author Name"
+        android:textSize="40dp"
+
+        android:id="@+id/name"
+        android:layout_gravity="center"
+        android:gravity="center"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="pages"
+        android:textSize="40dp"
+
+        android:id="@+id/pages"
+        android:layout_gravity="center"
+        android:gravity="center"
+
+        />
+<Switch
+    android:id="@+id/avaliable"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:textSize="30dp"
+    android:text="Avalibale ? "
+    />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="Add"
+        android:id="@+id/add"
+        android:onClick="addOnAction"
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="Save All "
+        android:id="@+id/saveAll"
+        android:onClick="saveAllOnAction"
+
+        />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
